@@ -25,9 +25,10 @@ export class LoginComponent implements OnInit {
     this.title.setTitle('Login');
   }
 
-  public logar(form: FormControl) {
+  public logar(form: FormControl, input: any) {
     this.service.login(this.login.user, this.login.pass)
         .then(_ => this.router.navigate(['/lancamentos']))
         .catch(error => this.errorHandlerService.handle(error));
+    input.value = '';
   }
 }
