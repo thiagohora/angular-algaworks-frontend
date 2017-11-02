@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: 404C51;
+    margin: 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+label.title {
+    display: block;
+}
+
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+        margin: 0 auto;
+    }
+}
+
+.date-box {
+    width: 95px;
+}
+
+.col-valor {
+    width: 120px;
+    text-align: right;
+}
+
+.col-data {
+    width: 120px;
+    text-align: center;
+}
+
+.col-acoes {
+    width: 90px;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.ui-dropdown-filter-container {
+    width: 100%;
+}
+
+span.ui-message {
+    display: block;
+} 

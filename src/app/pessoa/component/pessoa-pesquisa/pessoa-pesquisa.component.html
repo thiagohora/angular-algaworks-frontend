@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="ui-g">
+    
+    <div class="ui-g-12">
+      <h1>Pessoa</h1>
+    </div>
+
+    <form autocomplete="off" (ngSubmit)="pesquisar()">
+      <div class="ui-g-12 ui-fluid">
+        <label for="nome">Nome</label>
+        <input type="text" pInputText [(ngModel)]="filtro.nome" name="nome">
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisa"></button>
+      </div>
+    </form>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-dataTable 
+      [value]="pessoas" 
+      [paginator]="true" 
+      [rows]="filtro.itensPorPaginas" 
+      [responsive]="true" 
+      emptyMessage="Nenhuma pessoa encontrada!"
+      [lazy]="true" [totalRecords]="filtro.total"
+      (onLazyLoad)="changePage($event)" #table>
+        <p-column field="nome" header="Nome"></p-column>
+        <p-column field="cidade" header="Cidade">
+          <ng-template let-pes="rowData" pTemplate="body">
+            <span>
+                {{ pes.endereco.cidade }}
+            </span>
+        </ng-template>
+        </p-column>
+        <p-column field="estado" header="Estado">
+          <ng-template let-pes="rowData" pTemplate="body">
+            <span>
+                {{ pes.endereco.estado }}
+            </span>
+          </ng-template>
+        </p-column>
+        <p-column field="status" header="Status">
+          <ng-template let-pes="rowData" pTemplate="body">
+            <a href="javascript:;" tooltipPosition="top" 
+              [pTooltip]="pes.ativo ? 'Desativar' : 'Ativar'" [style.color]="pes.ativo ? 'green' : 'red'" 
+              (click)="$event.preventDefault(); updateStatus(pes.codigo, !pes.ativo);">
+              {{ pes.ativo ? 'Ativo' : 'Inátivo' }}
+            </a>
+          </ng-template>
+        </p-column>
+        <p-column styleClass="col-acoes">
+            <ng-template pTemplate="body" let-pes="rowData">
+            <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/pessoas', pes.codigo]"></a>
+            <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="delete(pes.codigo)"></button>
+            </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+  </div>
+  <div class="ui-g-12">
+    <a pButton label="Nova Pessoa" routerLink="/pessoas/novo"></a>
+  </div>
+
+</div>

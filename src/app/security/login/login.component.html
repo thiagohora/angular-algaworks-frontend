@@ -1,0 +1,27 @@
+<div class="container">
+  <form action="" #formRef="ngForm">
+  
+    <div class="ui-g">  
+      <div class="ui-g-12">
+        <h1>Login</h1>
+      </div>
+    </div>
+  
+    <div class="ui-g-12 ui-fluid">
+      <label>User</label>
+      <input type="email" pInputText name="user" [(ngModel)]="login.user" #user="ngModel" required email>
+      <app-form-message text="Informe o nome" [control]="user" error="required" ></app-form-message>
+      <app-form-message text="Email inválido" [control]="user" error="email" ></app-form-message>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label>Password</label>
+      <input type="password" pInputText [(ngModel)]="login.pass" name="password" #password="ngModel" required>
+      <app-form-message text="Informe a senha" [control]="password" error="required" ></app-form-message>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+        <button type="submit" label="Logar" pButton [disabled]="formRef.invalid" (click)="logar(formRef); password.value = ''; "></button>
+    </div>
+  </form>
+</div>

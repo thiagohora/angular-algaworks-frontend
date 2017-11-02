@@ -1,0 +1,50 @@
+.navbar {
+    background: #1e94d2;
+    padding: 10px 0;
+}
+
+.navbar-toggle {
+    color: #fff;
+}
+
+.navbar-menu {
+    position: fixed;
+    background-color: #3a3633;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 210px;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    list-style: none;
+}
+
+.navbar-usuario {
+    margin-bottom: 15px; 
+    padding: 15px;
+    border-bottom: 1px solid #525151;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar-menuitem {
+    padding: 15px;
+}
+
+.navbar-menuitem a {
+    color: #c0bbb7;
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar-menuitem a:hover {
+    color: #fff;
+}
+
+.navbar-menuitem.ativo {
+    background: #494541;
+}
+
